@@ -158,7 +158,7 @@ half4 frag(const v2f input) : SV_Target
 
     half4 base_color = _BaseColor;
     #ifdef _VERTEX_COLOR
-    base_color.xyz *= input.vertexColor;
+    base_color.xyz *= pow(input.vertexColor, 2.2);
     #endif
     const half3 sample_color = (SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv) * base_color).rgb;
     

@@ -10,7 +10,7 @@ inline half4 get_albedo_and_alpha_discard(const v2f input)
     half4 base_color = _BaseColor;
 
     #ifdef _VERTEX_COLOR
-    base_color.rgb *= input.vertexColor;
+    base_color.rgb *= pow(input.vertexColor, 2.2);
     #endif
 
     half4 albedo = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv) * base_color;
